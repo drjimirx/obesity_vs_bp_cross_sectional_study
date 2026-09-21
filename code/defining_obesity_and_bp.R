@@ -29,3 +29,18 @@ analysis_data <- analysis_data %>%
       TRUE ~ "No"
     )
   )
+
+#making category
+analysis_data <- analysis_data %>%
+  mutate(
+    Gender = factor(Gender),
+    Alcoholconsumption = factor(Alcoholconsumption),
+    physicalActivity = factor(physicalActivity),
+    central_obesity = factor(central_obesity),
+    central_obesity_whr = factor(central_obesity_whr),
+    BMI_category = factor(
+      BMI_category,
+      levels = c("Underweight", "Normal", "Overweight", "Obesity")
+    ),
+    elevated_BP = factor(elevated_BP)
+  )
